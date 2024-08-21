@@ -15,8 +15,10 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return "©2024 - Felipe Sanches Meirelles All Rights Reserved!"', () => {
+      expect(appController.getHello()).toBe(
+        '©2024 - Felipe Sanches Meirelles All Rights Reserved!',
+      );
     });
   });
 });

@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch NestJS App",
+        "skipFiles": ["<node_internals>/**"],
+        "program": "${workspaceFolder}/dist/main.js",
+        "preLaunchTask": "npm: build",
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "sourceMaps": true,
+        "env": {
+          "NODE_ENV": "development"
+        }
+      },
+      {
+        "type": "node",
+        "request": "attach",
+        "name": "Attach to NestJS App",
+        "port": 9229,
+        "restart": true,
+        "skipFiles": ["<node_internals>/**"]
+      }
+    ]
+  }
+  

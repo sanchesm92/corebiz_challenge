@@ -1,0 +1,46 @@
+version: '3.9'
+services:
+  backend:
+    build: ./
+    platform: linux/x86_64
+    restart: always
+    container_name: app_backend
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mysql
+    environment:
+      DATABASE_URL: '${DATABASE_URL}'
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - mysql_network
+
+  mysql:
+    image: mysql:8.0
+    container_name: db_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - mysql_network
+    healthcheck:
+      test: ['CMD-SHELL', 'mysqladmin ping -h localhost --silent']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysql_data:
+
+networks:
+  mysql_network:
+    driver: bridge
