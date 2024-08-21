@@ -24,7 +24,13 @@ export class TasksService {
     return this.prisma.task.findMany({
       where: { assignedTo: { email: userEmail } },
       include: {
-        assignedTo: true,
+        assignedTo: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
       },
     });
   }
@@ -33,7 +39,13 @@ export class TasksService {
     const task = await this.prisma.task.findUnique({
       where: { id, assignedTo: { email: userEmail } },
       include: {
-        assignedTo: true,
+        assignedTo: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
       },
     });
 
