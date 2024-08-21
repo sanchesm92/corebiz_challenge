@@ -48,8 +48,8 @@ To run the project locally, you will need Docker and Docker Compose installed. F
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/task-management-api.git
-   cd task-management-api
+   git clone git@github.com:sanchesm92/corebiz_challenge.git
+   cd corebiz_challenge
 
 2. Create a .env file in the root directory with the following content:
     ```env
