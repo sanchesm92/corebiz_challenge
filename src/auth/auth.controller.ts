@@ -38,7 +38,10 @@ export class AuthController {
   async signIn(@Body() signInDto: SigninDto) {
     try {
       const { accessToken, user } = await this.authService.signIn(signInDto);
-      return { accessToken, user };
+      return {
+        accessToken,
+        user: { email: user.email, id: user.id, name: user.name },
+      };
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       throw new UnauthorizedException('Invalid credentials');

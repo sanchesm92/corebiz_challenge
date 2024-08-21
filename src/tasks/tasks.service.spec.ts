@@ -67,7 +67,7 @@ describe('TasksService', () => {
         data: {
           title: 'Test task',
           description: 'Test description',
-          dueDate: new Date(2024, 7, 20), // Date should be correctly formatted
+          dueDate: new Date(2024, 7, 20),
           status: 'PENDING',
           assignedTo: { connect: { email: userEmail } },
         },

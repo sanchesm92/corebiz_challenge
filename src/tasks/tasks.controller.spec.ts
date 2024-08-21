@@ -155,7 +155,7 @@ describe('TasksController', () => {
         assignedTo: {
           id: 1,
           name: 'John Doe',
-          email: userEmail, // Ensure the email matches the userEmail
+          email: userEmail,
         },
       };
 
