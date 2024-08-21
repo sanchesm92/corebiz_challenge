@@ -100,7 +100,13 @@ describe('TasksService', () => {
       expect(prisma.task.findMany).toHaveBeenCalledWith({
         where: { assignedTo: { email: userEmail } },
         include: {
-          assignedTo: true,
+          assignedTo: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+            },
+          },
         },
       });
     });
@@ -129,7 +135,13 @@ describe('TasksService', () => {
       expect(prisma.task.findUnique).toHaveBeenCalledWith({
         where: { id: 1, assignedTo: { email: userEmail } },
         include: {
-          assignedTo: true,
+          assignedTo: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+            },
+          },
         },
       });
     });

@@ -78,7 +78,10 @@ The API is documented using Swagger. Once the project is running, you can access
 
 http://localhost:3000/swagger
 
+![Swagger Routes](https://i.imgur.com/XJbHFyq.png)
+
 ![Swagger Routes](https://i.imgur.com/YojOOOO.png)
+
 
 ## CI/CD Pipeline
 
